@@ -24,6 +24,10 @@ run =
         recursiveAllofRefs =
             OpenApi.Config.inputFrom (OpenApi.Config.File "./example/recursive-allof-refs.yaml")
 
+        overridingGlobalSecurity : OpenApi.Config.Input
+        overridingGlobalSecurity =
+            OpenApi.Config.inputFrom (OpenApi.Config.File "./example/overriding-global-security.yaml")
+
         singleEnum : OpenApi.Config.Input
         singleEnum =
             OpenApi.Config.inputFrom (OpenApi.Config.File "./example/single-enum.yaml")
@@ -75,6 +79,7 @@ run =
                 |> OpenApi.Config.withAutoConvertSwagger True
                 |> OpenApi.Config.withInput additionalProperties
                 |> OpenApi.Config.withInput recursiveAllofRefs
+                |> OpenApi.Config.withInput overridingGlobalSecurity
                 |> OpenApi.Config.withInput singleEnum
                 |> OpenApi.Config.withInput patreon
                 |> OpenApi.Config.withInput realworldConduit
